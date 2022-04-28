@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebAPIzModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietHDBan">
+    <Key>
+      <PropertyRef Name="mahd" />
+      <PropertyRef Name="masp" />
+    </Key>
+    <Property Name="mahd" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="masp" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="soluong" Type="int" Nullable="false" />
+    <Property Name="thanhtien" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HoaDonBan">
+    <Key>
+      <PropertyRef Name="mahd" />
+    </Key>
+    <Property Name="mahd" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ngaydat" Type="datetime" Nullable="false" />
+    <Property Name="hoten" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="sdt" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="diachinhanhang" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="tongtientt" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiSP">
+    <Key>
+      <PropertyRef Name="maloai" />
+    </Key>
+    <Property Name="maloai" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tenloai" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="manguoidung" />
+    </Key>
+    <Property Name="manguoidung" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="hoten" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="matkhau" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="sdt" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="diachi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="maquyen" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhaCungCap">
+    <Key>
+      <PropertyRef Name="mancc" />
+    </Key>
+    <Property Name="mancc" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tenncc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sdt" Type="nchar" MaxLength="10" />
+    <Property Name="diachi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="maquyen" />
+    </Key>
+    <Property Name="maquyen" Type="int" Nullable="false" />
+    <Property Name="tenquyen" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="masp" />
+    </Key>
+    <Property Name="masp" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="soluong" Type="int" Nullable="false" />
+    <Property Name="dongia" Type="float" Nullable="false" />
+    <Property Name="anh" Type="nvarchar" MaxLength="50" />
+    <Property Name="maloai" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_ChiTietHDBan_HoaDonBan">
+    <End Role="HoaDonBan" Type="Self.HoaDonBan" Multiplicity="1" />
+    <End Role="ChiTietHDBan" Type="Self.ChiTietHDBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDonBan">
+        <PropertyRef Name="mahd" />
+      </Principal>
+      <Dependent Role="ChiTietHDBan">
+        <PropertyRef Name="mahd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietHDBan_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="ChiTietHDBan" Type="Self.ChiTietHDBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="masp" />
+      </Principal>
+      <Dependent Role="ChiTietHDBan">
+        <PropertyRef Name="masp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NguoiDung_PhanQuyen">
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="1" />
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanQuyen">
+        <PropertyRef Name="maquyen" />
+      </Principal>
+      <Dependent Role="NguoiDung">
+        <PropertyRef Name="maquyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_LoaiSP">
+    <End Role="LoaiSP" Type="Self.LoaiSP" Multiplicity="1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSP">
+        <PropertyRef Name="maloai" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="maloai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="F_GetAllHoaDonB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="mahd" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ngaydat" Type="datetime" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="sdt" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="diachinhanhang" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="tongtientt" Type="float" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetAllLoaiSP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="maloai" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="tenloai" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetAllSP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="masp" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="dongia" Type="float" Nullable="false" />
+          <Property Name="anh" Type="nvarchar" MaxLength="50" />
+          <Property Name="maloai" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetDoanhThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="thoigianbd" Type="datetime" Mode="In" />
+    <Parameter Name="thoigiankt" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="mahd" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ngaydat" Type="datetime" Nullable="false" />
+          <Property Name="tongtientt" Type="float" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetSPBanChay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetSPTheoKhoangGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="giamin" Type="float" Mode="In" />
+    <Parameter Name="giamax" Type="float" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="dongia" Type="float" Nullable="false" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetSPTheoMaLoai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maloai" Type="nvarchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="masp" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="dongia" Type="float" Nullable="false" />
+          <Property Name="anh" Type="nvarchar" MaxLength="50" />
+          <Property Name="maloai" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetSPTheoTen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar(max)" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="masp" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="dongia" Type="float" Nullable="false" />
+          <Property Name="anh" Type="nvarchar" MaxLength="50" />
+          <Property Name="maloai" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetSPTonKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="F_GetTKTheoMa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manguoidung" Type="nvarchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="manguoidung" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="hoten" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="matkhau" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="sdt" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="diachi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="maquyen" Type="int" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SuaChiTietHDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mahoadon" Type="nvarchar" Mode="In" />
+    <Parameter Name="masp" Type="nvarchar" Mode="In" />
+    <Parameter Name="soluong" Type="int" Mode="In" />
+    <Parameter Name="thanhtien" Type="float" Mode="In" />
+  </Function>
+  <Function Name="SuaHoaDonBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mahd" Type="nvarchar" Mode="In" />
+    <Parameter Name="ngaydat" Type="datetime" Mode="In" />
+    <Parameter Name="hoten" Type="nvarchar" Mode="In" />
+    <Parameter Name="sdt" Type="nchar" Mode="In" />
+    <Parameter Name="diachinhanhang" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="tongtientt" Type="float" Mode="In" />
+  </Function>
+  <Function Name="SuaLoaiSanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maloai" Type="nvarchar" Mode="In" />
+    <Parameter Name="tenloai" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SuaNguoiDung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mand" Type="nvarchar" Mode="In" />
+    <Parameter Name="hoten" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="matkhau" Type="varchar" Mode="In" />
+    <Parameter Name="sdt" Type="nchar" Mode="In" />
+    <Parameter Name="diachi" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="maquyen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SuaNhaCungCap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mancc" Type="nvarchar" Mode="In" />
+    <Parameter Name="tenncc" Type="nvarchar" Mode="In" />
+    <Parameter Name="sdt" Type="nchar" Mode="In" />
+    <Parameter Name="diachi" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SuaSanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="masp" Type="nvarchar" Mode="In" />
+    <Parameter Name="tensp" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="mota" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="soluong" Type="int" Mode="In" />
+    <Parameter Name="dongia" Type="float" Mode="In" />
+    <Parameter Name="anh" Type="nvarchar" Mode="In" />
+    <Parameter Name="maloai" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ThemChiTietHDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mahoadon" Type="nvarchar" Mode="In" />
+    <Parameter Name="masp" Type="nvarchar" Mode="In" />
+    <Parameter Name="soluong" Type="int" Mode="In" />
+    <Parameter Name="thanhtien" Type="float" Mode="In" />
+  </Function>
+  <Function Name="ThemHoaDonBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mahd" Type="nvarchar" Mode="In" />
+    <Parameter Name="ngaydat" Type="datetime" Mode="In" />
+    <Parameter Name="hoten" Type="nvarchar" Mode="In" />
+    <Parameter Name="sdt" Type="nchar" Mode="In" />
+    <Parameter Name="diachinhanhang" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="tongtientt" Type="float" Mode="In" />
+  </Function>
+  <Function Name="ThemLoaiSP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maloai" Type="nvarchar" Mode="In" />
+    <Parameter Name="tenloai" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ThemNguoiDung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mand" Type="nvarchar" Mode="In" />
+    <Parameter Name="hoten" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="matkhau" Type="varchar" Mode="In" />
+    <Parameter Name="sdt" Type="nchar" Mode="In" />
+    <Parameter Name="diachi" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="maquyen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ThemNhaCungCap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mancc" Type="nvarchar" Mode="In" />
+    <Parameter Name="tenncc" Type="nvarchar" Mode="In" />
+    <Parameter Name="sdt" Type="nchar" Mode="In" />
+    <Parameter Name="diachi" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ThemSanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="masp" Type="nvarchar" Mode="In" />
+    <Parameter Name="tensp" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="mota" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="soluong" Type="int" Mode="In" />
+    <Parameter Name="dongia" Type="float" Mode="In" />
+    <Parameter Name="anh" Type="nvarchar" Mode="In" />
+    <Parameter Name="maloai" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="XoaChiTietHDBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mahd" Type="nvarchar" Mode="In" />
+    <Parameter Name="masp" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="XoaHoaDonB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mahd" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="XoaNhaCungCap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mancc" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="XoaSanPham" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="masp" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="WebAPIzModelStoreContainer">
+    <EntitySet Name="ChiTietHDBan" EntityType="Self.ChiTietHDBan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDonBan" EntityType="Self.HoaDonBan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiSP" EntityType="Self.LoaiSP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhaCungCap" EntityType="Self.NhaCungCap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ChiTietHDBan_HoaDonBan" Association="Self.FK_ChiTietHDBan_HoaDonBan">
+      <End Role="HoaDonBan" EntitySet="HoaDonBan" />
+      <End Role="ChiTietHDBan" EntitySet="ChiTietHDBan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietHDBan_SanPham" Association="Self.FK_ChiTietHDBan_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="ChiTietHDBan" EntitySet="ChiTietHDBan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NguoiDung_PhanQuyen" Association="Self.FK_NguoiDung_PhanQuyen">
+      <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_LoaiSP" Association="Self.FK_SanPham_LoaiSP">
+      <End Role="LoaiSP" EntitySet="LoaiSP" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

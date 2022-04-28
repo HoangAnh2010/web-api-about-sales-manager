@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d11506101c6b4cd48c75693af61a38bd" Name="Diagram1">
+        <EntityTypeShape EntityType="WebAPIzModel.ChiTietHDBan" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAPIzModel.HoaDonBan" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAPIzModel.LoaiSP" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAPIzModel.NguoiDung" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAPIzModel.NhaCungCap" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAPIzModel.PhanQuyen" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAPIzModel.SanPham" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAPIzModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="WebAPIzModel.FK_ChiTietHDBan_HoaDonBan" ManuallyRouted="false" />
+        <AssociationConnector Association="WebAPIzModel.FK_ChiTietHDBan_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="WebAPIzModel.FK_SanPham_LoaiSP" ManuallyRouted="false" />
+        <AssociationConnector Association="WebAPIzModel.FK_NguoiDung_PhanQuyen" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
