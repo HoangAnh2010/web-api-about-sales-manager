@@ -45,6 +45,8 @@ namespace OrioleCosmeticClient.Controllers
             return View();
         }
 
+
+        [HttpPost]
         public bool Login(string account, string password)
         {
             using (var client = new HttpClient())
@@ -63,11 +65,15 @@ namespace OrioleCosmeticClient.Controllers
 
                 var result = postTask.Result;
                 var user_id = result.Content.ReadAsStringAsync().Result;
+                if (user_id == null)
+                    return false;
                 Session["user_id"] = user_id;
                 return true;
             }
+           
         }
 
+        [HttpGet]
         public bool Authorize()
         {
             if (Session["user_id"] == null)

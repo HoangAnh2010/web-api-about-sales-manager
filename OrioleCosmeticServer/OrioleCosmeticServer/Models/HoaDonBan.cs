@@ -14,21 +14,13 @@ namespace OrioleCosmeticServer.Models
     
     public partial class HoaDonBan
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HoaDonBan()
-        {
-            this.ChiTietHoaDonBs = new HashSet<ChiTietHDBan>();
-        }
-
         public string mahd { get; set; }
         public System.DateTime ngaydat { get; set; }
         public string hoten { get; set; }
         public string sdt { get; set; }
         public string diachinhanhang { get; set; }
         public double tongtientt { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-        public virtual ICollection<ChiTietHDBan> ChiTietHoaDonBs { get; set; }
-
+        public List<ChiTietHDBan> chiTietHDBans { get; set; }
     }
 }

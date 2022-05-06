@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WebAPIzModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WebAPIzModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietHDBan">
           <Key>
             <PropertyRef Name="mahd" />
             <PropertyRef Name="masp" />
           </Key>
-          <Property Name="mahd" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="mahd" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="masp" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="soluong" Type="int" Nullable="false" />
           <Property Name="thanhtien" Type="float" Nullable="false" />
@@ -19,7 +19,7 @@
           <Key>
             <PropertyRef Name="mahd" />
           </Key>
-          <Property Name="mahd" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="mahd" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="ngaydat" Type="datetime" Nullable="false" />
           <Property Name="hoten" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="sdt" Type="nchar" MaxLength="10" Nullable="false" />
@@ -189,6 +189,8 @@
               <RowType>
                 <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
                 <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+                <Property Name="anh" Type="nvarchar" MaxLength="50" />
+                <Property Name="sl_ban" Type="int" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -245,6 +247,7 @@
               <RowType>
                 <Property Name="tensp" Type="nvarchar(max)" Nullable="false" />
                 <Property Name="mota" Type="nvarchar(max)" Nullable="false" />
+                <Property Name="anh" Type="nvarchar" MaxLength="50" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -419,8 +422,7 @@
             <End Role="SanPham" EntitySet="SanPham" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebAPIzModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -496,7 +498,7 @@
             <PropertyRef Name="mahd" />
             <PropertyRef Name="masp" />
           </Key>
-          <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mahd" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="masp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="soluong" Type="Int32" Nullable="false" />
           <Property Name="thanhtien" Type="Double" Nullable="false" />
@@ -505,7 +507,7 @@
           <Key>
             <PropertyRef Name="mahd" />
           </Key>
-          <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mahd" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ngaydat" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="hoten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
@@ -655,14 +657,14 @@
             <Parameter Name="giamax" Mode="In" Type="Double" />
           </FunctionImport>
           <FunctionImport Name="F_GetSPTheoMaLoai" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetSPTheoMaLoai_Result)">
-            <Parameter Name="maloai" Mode="In" Type="String" />
+          <Parameter Name="maloai" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="F_GetSPTheoTen" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetSPTheoTen_Result)">
-            <Parameter Name="ten" Mode="In" Type="String" />
+          <Parameter Name="ten" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="F_GetSPTonKho" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetSPTonKho_Result)" />
           <FunctionImport Name="F_GetTKTheoMa" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetTKTheoMa_Result)">
-            <Parameter Name="manguoidung" Mode="In" Type="String" />
+          <Parameter Name="manguoidung" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -783,13 +785,13 @@
             <Parameter Name="masp" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="XoaHoaDonB">
-            <Parameter Name="mahd" Mode="In" Type="String" />
+          <Parameter Name="mahd" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="XoaNhaCungCap">
-            <Parameter Name="mancc" Mode="In" Type="String" />
+          <Parameter Name="mancc" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="XoaSanPham">
-            <Parameter Name="masp" Mode="In" Type="String" />
+          <Parameter Name="masp" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">

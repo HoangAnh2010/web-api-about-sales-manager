@@ -72,7 +72,7 @@
       <PropertyRef Name="mahd" />
       <PropertyRef Name="masp" />
     </Key>
-    <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mahd" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="masp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="soluong" Type="Int32" Nullable="false" />
     <Property Name="thanhtien" Type="Double" Nullable="false" />
@@ -81,7 +81,7 @@
     <Key>
       <PropertyRef Name="mahd" />
     </Key>
-    <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mahd" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ngaydat" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="hoten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />

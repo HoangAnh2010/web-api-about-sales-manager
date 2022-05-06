@@ -1,0 +1,145 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="~/Content/images/logoo.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Trang Quản Trị - Oriole Cosmetic</title>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+    <link href="~/Areas/Assets/dist/css/styles.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        .menu1 {
+            color: white;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars"></i>
+        </button>
+        <h3>@Html.ActionLink("ORIOLE COSMETIC", "Index", "SanPhams", new { @class = "menu1" })</h3>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="basic-addon2" />
+                @Html.ActionLink(" ", "TimKiem", "SanPhams")
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                </div>
+
+            </div>
+        </form>
+
+        <!-- Navbar-->
+
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <div >
+                <h6>Oriole</h6>
+            </div>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">Cài đặt</a><a class="dropdown-item" href="#">Hoạt động</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="">Đăng xuất</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading" style="color:white"> <h5>Quản lý</h5></div>
+                        <div style="padding-left:20px">
+                            @Html.ActionLink("Sản phẩm", "Index", "SanPhams")
+                        </div>
+                        <br />
+                        <div style="padding-left:20px">
+                            @Html.ActionLink("Hóa đơn bán hàng", "Index", "HoaDonBans")
+                        </div>
+                        <br />
+                        <div style="padding-left:20px">
+                            @Html.ActionLink("Loại sản phẩm", "Index", "LoaiSPs")
+                        </div>
+                        <br />
+                        <div style="padding-left:20px">
+                            @Html.ActionLink("Nhà cung cấp", "Index", "NhaCungCaps")
+                        </div>
+                        <br />
+                        <div style="padding-left:20px">
+                            @Html.ActionLink("Tài khoản cá nhân", "Index", "Nguoidungs")
+                        </div>
+                        <br />
+                        
+                    </div>
+                </div>
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading" style="color:white"> <h5>Thống kê</h5></div>
+                        <div style="padding-left:20px">
+                            @Html.ActionLink("Sản phẩm bán chạy", "BanChay", "ThongKe")
+                        </div>
+                        <br />
+                        <div style="padding-left:20px">
+                            @Html.ActionLink("Sản phẩm tồn kho", "TonKho", "ThongKe")
+                        </div>
+                        <br />
+                        <div style="padding-left:20px">
+                            @Html.ActionLink("Doanh thu theo thời gian", "DoanhThu", "ThongKe")
+                        </div>
+                        <br />
+
+                    </div>
+                </div>
+
+
+                <div class="sb-sidenav-footer">
+            <div class="small">Đăng nhập bởi: </div>
+            ORIOLE
+        </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Oriole Cosmetic 2016</div>
+                        <div>
+                            <a href="#">Chính sách  bảo mật</a>
+                            &middot;
+                            <a href="#">Điều kiện</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/Areas/Assets/dist/js/scripts.js"></script>
+
+    
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="~/Areas/Assets/dist/assets/demo/datatables-demo.js"></script>
+    @RenderSection("js", false);
+</body>
+</html>

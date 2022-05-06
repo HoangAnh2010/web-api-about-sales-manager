@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebAPIzModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="F_GetAllHoaDonB_Result">
+    <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ngaydat" Type="DateTime" Nullable="false" />
+    <Property Name="hoten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="diachinhanhang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tongtientt" Type="Double" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetAllLoaiSP_Result">
+    <Property Name="maloai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tenloai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetAllSP_Result">
+    <Property Name="masp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluong" Type="Int32" Nullable="false" />
+    <Property Name="dongia" Type="Double" Nullable="false" />
+    <Property Name="anh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="maloai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetDoanhThu_Result">
+    <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ngaydat" Type="DateTime" Nullable="false" />
+    <Property Name="tongtientt" Type="Double" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetSPBanChay_Result">
+    <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetSPTheoKhoangGia_Result">
+    <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dongia" Type="Double" Nullable="false" />
+    <Property Name="soluong" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetSPTheoMaLoai_Result">
+    <Property Name="masp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluong" Type="Int32" Nullable="false" />
+    <Property Name="dongia" Type="Double" Nullable="false" />
+    <Property Name="anh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="maloai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetSPTheoTen_Result">
+    <Property Name="masp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluong" Type="Int32" Nullable="false" />
+    <Property Name="dongia" Type="Double" Nullable="false" />
+    <Property Name="anh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="maloai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetSPTonKho_Result">
+    <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="F_GetTKTheoMa_Result">
+    <Property Name="manguoidung" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hoten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="matkhau" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="maquyen" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="ChiTietHDBan">
+    <Key>
+      <PropertyRef Name="mahd" />
+      <PropertyRef Name="masp" />
+    </Key>
+    <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="masp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluong" Type="Int32" Nullable="false" />
+    <Property Name="thanhtien" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HoaDonBan">
+    <Key>
+      <PropertyRef Name="mahd" />
+    </Key>
+    <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ngaydat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hoten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="diachinhanhang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tongtientt" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiSP">
+    <Key>
+      <PropertyRef Name="maloai" />
+    </Key>
+    <Property Name="maloai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tenloai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="manguoidung" />
+    </Key>
+    <Property Name="manguoidung" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hoten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="matkhau" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="maquyen" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhaCungCap">
+    <Key>
+      <PropertyRef Name="mancc" />
+    </Key>
+    <Property Name="mancc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tenncc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="maquyen" />
+    </Key>
+    <Property Name="maquyen" Type="Int32" Nullable="false" />
+    <Property Name="tenquyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="masp" />
+    </Key>
+    <Property Name="masp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soluong" Type="Int32" Nullable="false" />
+    <Property Name="dongia" Type="Double" Nullable="false" />
+    <Property Name="anh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="maloai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_ChiTietHDBan_HoaDonBan">
+    <End Role="HoaDonBan" Type="Self.HoaDonBan" Multiplicity="1" />
+    <End Role="ChiTietHDBan" Type="Self.ChiTietHDBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDonBan">
+        <PropertyRef Name="mahd" />
+      </Principal>
+      <Dependent Role="ChiTietHDBan">
+        <PropertyRef Name="mahd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietHDBan_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="ChiTietHDBan" Type="Self.ChiTietHDBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="masp" />
+      </Principal>
+      <Dependent Role="ChiTietHDBan">
+        <PropertyRef Name="masp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_LoaiSP">
+    <End Role="LoaiSP" Type="Self.LoaiSP" Multiplicity="1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSP">
+        <PropertyRef Name="maloai" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="maloai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NguoiDung_PhanQuyen">
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="1" />
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanQuyen">
+        <PropertyRef Name="maquyen" />
+      </Principal>
+      <Dependent Role="NguoiDung">
+        <PropertyRef Name="maquyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebAPIzEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietHDBans" EntityType="Self.ChiTietHDBan" />
+    <EntitySet Name="HoaDonBans" EntityType="Self.HoaDonBan" />
+    <EntitySet Name="LoaiSPs" EntityType="Self.LoaiSP" />
+    <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
+    <EntitySet Name="NhaCungCaps" EntityType="Self.NhaCungCap" />
+    <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_ChiTietHDBan_HoaDonBan" Association="Self.FK_ChiTietHDBan_HoaDonBan">
+      <End Role="HoaDonBan" EntitySet="HoaDonBans" />
+      <End Role="ChiTietHDBan" EntitySet="ChiTietHDBans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietHDBan_SanPham" Association="Self.FK_ChiTietHDBan_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="ChiTietHDBan" EntitySet="ChiTietHDBans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SanPham_LoaiSP" Association="Self.FK_SanPham_LoaiSP">
+      <End Role="LoaiSP" EntitySet="LoaiSPs" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NguoiDung_PhanQuyen" Association="Self.FK_NguoiDung_PhanQuyen">
+      <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+      <End Role="NguoiDung" EntitySet="NguoiDungs" />
+    </AssociationSet>
+    <FunctionImport Name="F_GetAllHoaDonB" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetAllHoaDonB_Result)" />
+    <FunctionImport Name="F_GetAllLoaiSP" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetAllLoaiSP_Result)" />
+    <FunctionImport Name="F_GetAllSP" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetAllSP_Result)" />
+    <FunctionImport Name="F_GetDoanhThu" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetDoanhThu_Result)">
+      <Parameter Name="thoigianbd" Mode="In" Type="DateTime" />
+      <Parameter Name="thoigiankt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="F_GetSPBanChay" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetSPBanChay_Result)" />
+    <FunctionImport Name="F_GetSPTheoKhoangGia" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetSPTheoKhoangGia_Result)">
+      <Parameter Name="giamin" Mode="In" Type="Double" />
+      <Parameter Name="giamax" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="F_GetSPTheoMaLoai" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetSPTheoMaLoai_Result)">
+      <Parameter Name="maloai" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="F_GetSPTheoTen" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetSPTheoTen_Result)">
+      <Parameter Name="ten" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="F_GetSPTonKho" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetSPTonKho_Result)" />
+    <FunctionImport Name="F_GetTKTheoMa" IsComposable="true" ReturnType="Collection(WebAPIzModel.F_GetTKTheoMa_Result)">
+      <Parameter Name="manguoidung" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(WebAPIzModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(WebAPIzModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="SuaChiTietHDB">
+      <Parameter Name="mahoadon" Mode="In" Type="String" />
+      <Parameter Name="masp" Mode="In" Type="String" />
+      <Parameter Name="soluong" Mode="In" Type="Int32" />
+      <Parameter Name="thanhtien" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="SuaHoaDonBan">
+      <Parameter Name="mahd" Mode="In" Type="String" />
+      <Parameter Name="ngaydat" Mode="In" Type="DateTime" />
+      <Parameter Name="hoten" Mode="In" Type="String" />
+      <Parameter Name="sdt" Mode="In" Type="String" />
+      <Parameter Name="diachinhanhang" Mode="In" Type="String" />
+      <Parameter Name="tongtientt" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="SuaLoaiSanPham">
+      <Parameter Name="maloai" Mode="In" Type="String" />
+      <Parameter Name="tenloai" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SuaNguoiDung">
+      <Parameter Name="mand" Mode="In" Type="String" />
+      <Parameter Name="hoten" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="matkhau" Mode="In" Type="String" />
+      <Parameter Name="sdt" Mode="In" Type="String" />
+      <Parameter Name="diachi" Mode="In" Type="String" />
+      <Parameter Name="maquyen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SuaNhaCungCap">
+      <Parameter Name="mancc" Mode="In" Type="String" />
+      <Parameter Name="tenncc" Mode="In" Type="String" />
+      <Parameter Name="sdt" Mode="In" Type="String" />
+      <Parameter Name="diachi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SuaSanPham">
+      <Parameter Name="masp" Mode="In" Type="String" />
+      <Parameter Name="tensp" Mode="In" Type="String" />
+      <Parameter Name="mota" Mode="In" Type="String" />
+      <Parameter Name="soluong" Mode="In" Type="Int32" />
+      <Parameter Name="dongia" Mode="In" Type="Double" />
+      <Parameter Name="anh" Mode="In" Type="String" />
+      <Parameter Name="maloai" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ThemChiTietHDB">
+      <Parameter Name="mahoadon" Mode="In" Type="String" />
+      <Parameter Name="masp" Mode="In" Type="String" />
+      <Parameter Name="soluong" Mode="In" Type="Int32" />
+      <Parameter Name="thanhtien" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="ThemHoaDonBan">
+      <Parameter Name="mahd" Mode="In" Type="String" />
+      <Parameter Name="ngaydat" Mode="In" Type="DateTime" />
+      <Parameter Name="hoten" Mode="In" Type="String" />
+      <Parameter Name="sdt" Mode="In" Type="String" />
+      <Parameter Name="diachinhanhang" Mode="In" Type="String" />
+      <Parameter Name="tongtientt" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="ThemLoaiSP">
+      <Parameter Name="maloai" Mode="In" Type="String" />
+      <Parameter Name="tenloai" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ThemNguoiDung">
+      <Parameter Name="mand" Mode="In" Type="String" />
+      <Parameter Name="hoten" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="matkhau" Mode="In" Type="String" />
+      <Parameter Name="sdt" Mode="In" Type="String" />
+      <Parameter Name="diachi" Mode="In" Type="String" />
+      <Parameter Name="maquyen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ThemNhaCungCap">
+      <Parameter Name="mancc" Mode="In" Type="String" />
+      <Parameter Name="tenncc" Mode="In" Type="String" />
+      <Parameter Name="sdt" Mode="In" Type="String" />
+      <Parameter Name="diachi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ThemSanPham">
+      <Parameter Name="masp" Mode="In" Type="String" />
+      <Parameter Name="tensp" Mode="In" Type="String" />
+      <Parameter Name="mota" Mode="In" Type="String" />
+      <Parameter Name="soluong" Mode="In" Type="Int32" />
+      <Parameter Name="dongia" Mode="In" Type="Double" />
+      <Parameter Name="anh" Mode="In" Type="String" />
+      <Parameter Name="maloai" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="XoaChiTietHDBan">
+      <Parameter Name="mahd" Mode="In" Type="String" />
+      <Parameter Name="masp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="XoaHoaDonB">
+      <Parameter Name="mahd" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="XoaNhaCungCap">
+      <Parameter Name="mancc" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="XoaSanPham">
+      <Parameter Name="masp" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -102,6 +102,18 @@ namespace OrioleCosmeticServer.Controllers
             return CreatedAtRoute("DefaultApi", new { id = nguoiDung.manguoidung }, nguoiDung);
         }
 
+        [HttpPost]
+        [ResponseType(typeof(string))]
+        [Route("api/NguoiDungs/Login")]
+        public IHttpActionResult Login(NguoiDung nguoiDung)
+        {
+            var user = db.NguoiDungs.FirstOrDefault(x => x.email == nguoiDung.email && x.matkhau == nguoiDung.matkhau);
+            if (user == null)
+                return null;
+            return Ok(user.manguoidung);
+        }
+
+
         // DELETE: api/NguoiDungs/5
         [ResponseType(typeof(NguoiDung))]
         public IHttpActionResult DeleteNguoiDung(string id)

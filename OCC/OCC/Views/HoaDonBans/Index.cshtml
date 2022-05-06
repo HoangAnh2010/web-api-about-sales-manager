@@ -1,0 +1,88 @@
+﻿@model IEnumerable<OCC.Models.HoaDonBan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <table align="center" , border="1" style="color:black;background:center;background-color:burlywood">
+        <tr>
+            <td>
+                <h3 style="vertical-align:inherit">   QUẢN LÝ HÓA ĐƠN BÁN HÀNG   </h3>
+            </td>
+        </tr>
+    </table>
+</head>
+<body>
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                Ngày đặt
+            </th>
+            <th>
+                Họ và tên người đặt hàng
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Địa chỉ nhận hàng
+            </th>
+            <th>
+                Tổng tiền thanh toán
+            </th>
+            <th>
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngaydat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hoten)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sdt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.diachinhanhang)
+                </td>
+                <td>
+                    @string.Format("{0:#,##0}", item.tongtientt)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Sửa", "Edit", new { id = item.mahd }) |*@
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.mahd }) |
+                    @*@Html.ActionLink("Xóa", "Delete", new { id = item.mahd })*@
+                    <input type="button" value="xóa" onclick="del('@item.mahd')">
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    @section js{
+        <script>
+            function del(id) {
+                id = id.trim();
+                if (confirm("Bạn có chắc muốn xóa hóa đơn này không?") == true) {
+                    location.href = '/HoaDonBans/Delete/' + id;
+                } 
+            }
+        </script>
+    }
+
+</body>
+</html>

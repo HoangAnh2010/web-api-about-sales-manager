@@ -22,7 +22,7 @@ namespace OrioleCosmeticServer.Controllers
             return db.HoaDonBans;
         }
 
-        // GET: api/HoaDonBans/5
+        // GET: api/HoaDonBans/c
         [ResponseType(typeof(HoaDonBan))]
         public IHttpActionResult GetHoaDonBan(string id)
         {
@@ -79,23 +79,24 @@ namespace OrioleCosmeticServer.Controllers
             try
             {
                 HoaDonBan hd = new HoaDonBan();
-                hd.mahd = hoaDonBan.mahd;
+                hd.mahd = Guid.NewGuid().ToString();
                 hd.hoten = hoaDonBan.hoten;
                 hd.sdt = hoaDonBan.sdt;
                 hd.ngaydat = DateTime.Now;
                 hd.diachinhanhang = hoaDonBan.diachinhanhang;
                 hd.tongtientt = hoaDonBan.tongtientt;
 
-                foreach (ChiTietHDBan b in hoaDonBan.ChiTietHoaDonBs)
+                foreach (ChiTietHDBan b in hoaDonBan.chiTietHDBans)
                 {
                     ChiTietHDBan ct = new ChiTietHDBan();
-                    ct.mahd = b.mahd;
+                    ct.mahd = hd.mahd;
                     ct.masp = b.masp;
                     ct.soluong = b.soluong;
                     ct.thanhtien = b.thanhtien;
                     SanPham sanPham = db.SanPhams.FirstOrDefault(x => x.masp == b.masp);
                     sanPham.soluong -= b.soluong;
                     db.ChiTietHDBans.Add(ct);
+                    
                 }
 
                 db.HoaDonBans.Add(hd);

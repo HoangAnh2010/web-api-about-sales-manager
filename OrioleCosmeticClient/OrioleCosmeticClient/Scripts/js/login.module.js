@@ -6,7 +6,7 @@ app.controller('login', ($scope, $http) => {
     $scope.login = () => {
         $http({
             method: 'POST',
-            url: 'http://localhost:44393/NguoiDung/login',
+            url: 'https://localhost:44393/NguoiDung/login',
             params: {
                 account: $scope.account,
                 password: $scope.password
@@ -19,6 +19,7 @@ app.controller('login', ($scope, $http) => {
                 alert("Sai email hoặc mật khẩu");
             }
         }, (err) => {
+            console.log("error: ");
             console.log(err);
         });
     }

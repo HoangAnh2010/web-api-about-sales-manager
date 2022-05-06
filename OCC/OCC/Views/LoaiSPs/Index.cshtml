@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OCC.Models.LoaiSP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <table align="center" , border="1" style="color:black;background:center;background-color:burlywood">
+        <tr>
+            <td>
+                <h3 style="vertical-align:inherit">   QUẢN LÝ LOẠI SẢN PHẨM   </h3>
+            </td>
+        </tr>
+    </table>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Thêm mới", "Create", "LoaiSPs")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Tên loại
+            </th>
+            <th>
+                Thao tác
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tenloai)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.maloai }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.maloai }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.maloai })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

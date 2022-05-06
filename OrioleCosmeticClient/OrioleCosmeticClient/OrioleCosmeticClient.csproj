@@ -480,6 +480,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\cart.controller.js" />
+    <Content Include="Scripts\js\checkout.controller.js" />
     <Content Include="Scripts\js\checkout.js" />
     <Content Include="Scripts\js\contact-us.js" />
     <Content Include="Scripts\js\jquery.actual.min.js" />

@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebAPIzModelStoreContainer" CdmEntityContainer="WebAPIzEntities1">
+    <EntitySetMapping Name="ChiTietHDBans">
+      <EntityTypeMapping TypeName="WebAPIzModel.ChiTietHDBan">
+        <MappingFragment StoreEntitySet="ChiTietHDBan">
+          <ScalarProperty Name="mahd" ColumnName="mahd" />
+          <ScalarProperty Name="masp" ColumnName="masp" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="thanhtien" ColumnName="thanhtien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDonBans">
+      <EntityTypeMapping TypeName="WebAPIzModel.HoaDonBan">
+        <MappingFragment StoreEntitySet="HoaDonBan">
+          <ScalarProperty Name="mahd" ColumnName="mahd" />
+          <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="diachinhanhang" ColumnName="diachinhanhang" />
+          <ScalarProperty Name="tongtientt" ColumnName="tongtientt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiSPs">
+      <EntityTypeMapping TypeName="WebAPIzModel.LoaiSP">
+        <MappingFragment StoreEntitySet="LoaiSP">
+          <ScalarProperty Name="maloai" ColumnName="maloai" />
+          <ScalarProperty Name="tenloai" ColumnName="tenloai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiDungs">
+      <EntityTypeMapping TypeName="WebAPIzModel.NguoiDung">
+        <MappingFragment StoreEntitySet="NguoiDung">
+          <ScalarProperty Name="manguoidung" ColumnName="manguoidung" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="maquyen" ColumnName="maquyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaCungCaps">
+      <EntityTypeMapping TypeName="WebAPIzModel.NhaCungCap">
+        <MappingFragment StoreEntitySet="NhaCungCap">
+          <ScalarProperty Name="mancc" ColumnName="mancc" />
+          <ScalarProperty Name="tenncc" ColumnName="tenncc" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanQuyens">
+      <EntityTypeMapping TypeName="WebAPIzModel.PhanQuyen">
+        <MappingFragment StoreEntitySet="PhanQuyen">
+          <ScalarProperty Name="maquyen" ColumnName="maquyen" />
+          <ScalarProperty Name="tenquyen" ColumnName="tenquyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="WebAPIzModel.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="masp" ColumnName="masp" />
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="dongia" ColumnName="dongia" />
+          <ScalarProperty Name="anh" ColumnName="anh" />
+          <ScalarProperty Name="maloai" ColumnName="maloai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="WebAPIzModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetAllHoaDonB" FunctionImportName="F_GetAllHoaDonB">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetAllHoaDonB_Result">
+          <ScalarProperty Name="mahd" ColumnName="mahd" />
+          <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="diachinhanhang" ColumnName="diachinhanhang" />
+          <ScalarProperty Name="tongtientt" ColumnName="tongtientt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetAllLoaiSP" FunctionImportName="F_GetAllLoaiSP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetAllLoaiSP_Result">
+          <ScalarProperty Name="maloai" ColumnName="maloai" />
+          <ScalarProperty Name="tenloai" ColumnName="tenloai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetAllSP" FunctionImportName="F_GetAllSP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetAllSP_Result">
+          <ScalarProperty Name="masp" ColumnName="masp" />
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="dongia" ColumnName="dongia" />
+          <ScalarProperty Name="anh" ColumnName="anh" />
+          <ScalarProperty Name="maloai" ColumnName="maloai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetDoanhThu" FunctionImportName="F_GetDoanhThu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetDoanhThu_Result">
+          <ScalarProperty Name="mahd" ColumnName="mahd" />
+          <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+          <ScalarProperty Name="tongtientt" ColumnName="tongtientt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetSPBanChay" FunctionImportName="F_GetSPBanChay">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetSPBanChay_Result">
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetSPTheoKhoangGia" FunctionImportName="F_GetSPTheoKhoangGia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetSPTheoKhoangGia_Result">
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+          <ScalarProperty Name="dongia" ColumnName="dongia" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetSPTheoMaLoai" FunctionImportName="F_GetSPTheoMaLoai">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetSPTheoMaLoai_Result">
+          <ScalarProperty Name="masp" ColumnName="masp" />
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="dongia" ColumnName="dongia" />
+          <ScalarProperty Name="anh" ColumnName="anh" />
+          <ScalarProperty Name="maloai" ColumnName="maloai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetSPTheoTen" FunctionImportName="F_GetSPTheoTen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetSPTheoTen_Result">
+          <ScalarProperty Name="masp" ColumnName="masp" />
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="dongia" ColumnName="dongia" />
+          <ScalarProperty Name="anh" ColumnName="anh" />
+          <ScalarProperty Name="maloai" ColumnName="maloai" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetSPTonKho" FunctionImportName="F_GetSPTonKho">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetSPTonKho_Result">
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="WebAPIzModel.Store.F_GetTKTheoMa" FunctionImportName="F_GetTKTheoMa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.F_GetTKTheoMa_Result">
+          <ScalarProperty Name="manguoidung" ColumnName="manguoidung" />
+          <ScalarProperty Name="hoten" ColumnName="hoten" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="maquyen" ColumnName="maquyen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="WebAPIzModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="WebAPIzModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="WebAPIzModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="WebAPIzModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="WebAPIzModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WebAPIzModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="WebAPIzModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="WebAPIzModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="SuaChiTietHDB" FunctionName="WebAPIzModel.Store.SuaChiTietHDB" />
+    <FunctionImportMapping FunctionImportName="SuaHoaDonBan" FunctionName="WebAPIzModel.Store.SuaHoaDonBan" />
+    <FunctionImportMapping FunctionImportName="SuaLoaiSanPham" FunctionName="WebAPIzModel.Store.SuaLoaiSanPham" />
+    <FunctionImportMapping FunctionImportName="SuaNguoiDung" FunctionName="WebAPIzModel.Store.SuaNguoiDung" />
+    <FunctionImportMapping FunctionImportName="SuaNhaCungCap" FunctionName="WebAPIzModel.Store.SuaNhaCungCap" />
+    <FunctionImportMapping FunctionImportName="SuaSanPham" FunctionName="WebAPIzModel.Store.SuaSanPham" />
+    <FunctionImportMapping FunctionImportName="ThemChiTietHDB" FunctionName="WebAPIzModel.Store.ThemChiTietHDB" />
+    <FunctionImportMapping FunctionImportName="ThemHoaDonBan" FunctionName="WebAPIzModel.Store.ThemHoaDonBan" />
+    <FunctionImportMapping FunctionImportName="ThemLoaiSP" FunctionName="WebAPIzModel.Store.ThemLoaiSP" />
+    <FunctionImportMapping FunctionImportName="ThemNguoiDung" FunctionName="WebAPIzModel.Store.ThemNguoiDung" />
+    <FunctionImportMapping FunctionImportName="ThemNhaCungCap" FunctionName="WebAPIzModel.Store.ThemNhaCungCap" />
+    <FunctionImportMapping FunctionImportName="ThemSanPham" FunctionName="WebAPIzModel.Store.ThemSanPham" />
+    <FunctionImportMapping FunctionImportName="XoaChiTietHDBan" FunctionName="WebAPIzModel.Store.XoaChiTietHDBan" />
+    <FunctionImportMapping FunctionImportName="XoaHoaDonB" FunctionName="WebAPIzModel.Store.XoaHoaDonB" />
+    <FunctionImportMapping FunctionImportName="XoaNhaCungCap" FunctionName="WebAPIzModel.Store.XoaNhaCungCap" />
+    <FunctionImportMapping FunctionImportName="XoaSanPham" FunctionName="WebAPIzModel.Store.XoaSanPham" />
+  </EntityContainerMapping>
+</Mapping>

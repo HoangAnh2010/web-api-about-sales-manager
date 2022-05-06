@@ -107,60 +107,60 @@ namespace OrioleCosmeticServer.Controllers
 
 
         // PUT: api/SanPhams/5
+        [HttpPut]
         [ResponseType(typeof(void))]
         [Route("api/SanPhams/PutSanPham")]
-        public IHttpActionResult PutSanPham(string id, SanPham sanPham)
+        public IHttpActionResult PutSanPham(string id, SanPham s)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != sanPham.masp)
+            if (id != s.masp)
             {
                 return BadRequest();
             }
 
-            db.Entry(sanPham).State = EntityState.Modified;
+            //db.Entry(sanPham).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SanPhamExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //try
+            //{
+            //    db.SaveChanges();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!SanPhamExists(id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(db.SuaSanPham(id,s.tensp,s.mota,s.soluong,s.dongia,s.anh,s.maloai ));
         }
 
         // POST: api/SanPhams
         [ResponseType(typeof(SanPham))]
         [Route("api/SanPhams/PostSanPham")]
-        public IHttpActionResult PostSanPham(SanPham sanPham)
+        public IHttpActionResult PostSanPham(SanPham s)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.SanPhams.Add(sanPham);
 
             try
             {
-                db.SaveChanges();
+                db.ThemSanPham(s.masp,s.tensp,s.mota,s.soluong,s.dongia,s.anh,s.maloai);
             }
             catch (DbUpdateException)
             {
-                if (SanPhamExists(sanPham.masp))
+                if (SanPhamExists(s.masp))
                 {
                     return Conflict();
                 }
@@ -170,7 +170,7 @@ namespace OrioleCosmeticServer.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = sanPham.masp }, sanPham);
+            return Ok(s);
         }
 
         // DELETE: api/SanPhams/5
@@ -178,16 +178,13 @@ namespace OrioleCosmeticServer.Controllers
         [Route("api/SanPhams/DeleteSanPham")]
         public IHttpActionResult DeleteSanPham(string id)
         {
-            SanPham sanPham = db.SanPhams.Find(id);
-            if (sanPham == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            db.SanPhams.Remove(sanPham);
-            db.SaveChanges();
-
-            return Ok(sanPham);
+            db.XoaSanPham(id);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

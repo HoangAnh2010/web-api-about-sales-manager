@@ -3,7 +3,7 @@
         Layout = "~/Views/Shared/_Layout.cshtml";
     }*@
 
-<div class="columns-container">
+<div class="columns-container" ng-controller="cart">
     <div class="container" id="columns">
         <!--page heading-->
         <h2 class="page-heading">
@@ -14,7 +14,7 @@
 
             <div class="heading-counter warning">
                 <span class="fa fa-shopping-cart"></span> Giỏ hàng của bạn gồm:
-                <span id="count-item-cart" style="font-weight: bold">1</span> <span> sản phẩm</span>
+                <span style="font-weight: bold">{{carts.length}}</span> <span> sản phẩm</span>
             </div>
             <div class="order-detail-content">
                 <table class="table table-bordered table-responsive cart_summary">
@@ -28,24 +28,23 @@
                             <th class="action"><i class="fa fa-trash-o"></i></th>
                         </tr>
                     </thead>
-                    <tbody id="show-item-cart">
-                        @*@foreach (var item in Model)
-                            {
-                                <tr>
-                                    <th class="cart_product"><img src="~/Content/images/product-detail/@item.Anh" /></th>
-                                    <th>@item.TenSP</th>
-                                    <th>@string.Format("{0:#,##0}", item.Gia)</th>
-                                    <th>@item.SL</th>
-                                    <th>@string.Format("{0:#,##0}", (item.SL * item.Gia))</th>
-                                    <th class="action"><i class="fa fa-trash-o"></i></th>
-                                </tr>
-                            }*@
+                    <tbody >
+
+                        <tr ng-repeat="c in carts">
+                            <th class="cart_product"><img src="~/Content/images/product-detail/{{c.anh}}" /></th>
+                            <th>{{c.ten}}</th>
+                            <th>{{c.gia}}</th>
+                            <th>{{c.sl_mua}}</th>
+                            <th>{{c.sl_mua*c.gia|number}}</th>
+                            <th class="action" ng-click="remove($index)"><i class="fa fa-trash-o"></i></th>
+                        </tr>
+
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2" rowspan="1"></td>
                             <td colspan="2"><strong>Thành tiền</strong></td>
-                            <td colspan="1" id="total-item-price" style="font-weight: bold; color: #e84d1c; font-size: 20px;">54,000</td>
+                            <td colspan="1"  style="font-weight: bold; color: #e84d1c; font-size: 20px;">{{tongTien() | number}}</td>
                             <td></td>
                         </tr>
                     </tfoot>
@@ -58,3 +57,9 @@
         </div>
     </div>
 </div>
+
+@section js {
+    <script src="~/Scripts/js/login.module.js"></script>
+    <script src="~/Scripts/js/cart.controller.js"></script>
+
+}

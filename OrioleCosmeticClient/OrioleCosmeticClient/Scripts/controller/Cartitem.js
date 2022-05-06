@@ -87,7 +87,7 @@ $(document).ready(function () {
         $.get("/GioHang/giam1sp", { id: productcode }, function (data) {
             if (data.success == true) {
                 displayCart();
-            }
+            } 
         });
     });
 
@@ -127,7 +127,10 @@ $(document).ready(function () {
         });
     });
 });
-
+//chon mua 1 sản phẩm
+//lấy thông tin của sản phẩm đó
+    //số lượng còn không -- không cần gọi tới controller--> bởi vì đã lấy được thông tin khi load danh sách sản phẩm-->sử dụng code angular
+    //sau khi check số lượng và nếu nó đủ --> ta thêm thông tin của sản phẩm đó vào localStorage
 //hàm thực hiện chức năng khởi tạo giỏ hàng
 function muahang(id) {
     $.get("/GioHang/MuaHang", { id: id }, function (data) {

@@ -1,0 +1,78 @@
+﻿@model OCC.Models.HoaDonBan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <table style="color:white; text-align:center; background-color: darkgreen" width="100%" height="50">
+        <tr>
+            <td><h2><strong>Xóa hóa đơn bán hàng</strong></h2></td>
+        </tr>
+    </table>
+</head>
+<body>
+    <h3>Bạn có chắc chắn muốn xóa không?</h3>
+    <div>
+        <h4>HoaDonBan</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Ngày đặt
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ngaydat)
+            </dd>
+
+            <dt>
+                Họ và tên người đặt hàng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.hoten)
+            </dd>
+
+            <dt>
+                Số điện thoại
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sdt)
+            </dd>
+
+            <dt>
+                Địa chỉ nhận hàng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.diachinhanhang)
+            </dd>
+
+            <dt>
+                Tổng tiền thanh toán
+            </dt>
+
+            <dd>
+                @string.Format("{0:#,##0}", Model.tongtientt)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Trở về", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

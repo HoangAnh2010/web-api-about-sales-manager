@@ -4,228 +4,248 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div id="home-slider">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 header-top-right">
-                <div class="homeslider">
-                    <ul id="contenhomeslider" style="height: 300px !important">
-                        <li><img alt="Cosmetic" src="~/Content/images/slide/slide5.jpg" title="Cosmetic" /></li>
-                        <li><img alt="Cosmetic" src="~/Content/images/slide/slide6.jpg" title="Cosmetic" /></li>
-                        <li><img alt="Cosmetic" src="~/Content/images/slide/slide4.png" title="Cosmetic" /></li>
-                        <li><img alt="Cosmetic" src="~/Content/images/slide/slide3.jpg" title="Cosmetic" /></li>
-                        <li><img alt="Cosmetic" src="~/Content/images/slide/slide2.jpg" title="Cosmetic" /></li>
-                        <li><img alt="Cosmetic" src="~/Content/images/slide/slide1.jpg" title="Cosmetic" /></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- featured category  -->
-<div class="demo_changer" id="demo_changer">
-    <div class="demo-icon fa fa-shopping-cart">
-        <span class="notify notify-left" id="count-cart">0</span>
-    </div>
-    <div class="form_holder">
-        <div class="cart-block">
-            <div class="cart-block-content">
-                <div class="cart-block-list">
-                    <div class="shop_cart">
-                        <table class="shop_table">
-                            <tbody id="show-cart">
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-                <div class="toal-cart">
-                    <span>Tổng tiền</span>
-                    <span class="toal-price pull-right" id="total_price">54,000đ</span>
-                </div>
-                <div class="cart-buttons">
-                    <a href="/GioHang/ShoppingCart" class="btn-check-out">Thanh toán</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@*<div class="content-page">*@
-<div class="container" ng-controller="product">
-    <div class="category-featured Vegetables">
-        <nav class="navbar nav-menu show-brand">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-brand"><a href="#"> <img alt="fashion" src="~/Content/images/icon_like.png" /> Tất cả sản phẩm</a></div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse">
-
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-
-        </nav>
-        <div class="product-featured clearfix">
+<div  ng-controller="product">
+    <div id="home-slider">
+        <div class="container">
             <div class="row">
-
-                <div class="col-sm-12">
-                    <div class="box-right">
-                        <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-                        <select ng-model="products" ng-change="seachProduct()" style="visibility:hidden"></select>
-
-                        <ul class="product-list">
-                            <li class="col-sm-4 product-item" ng-repeat="p in products">
-                                <div class="left-block">
-                                    <a href="/SanPham/ChiTietSP/{{p.masp}}">
-                                        <img class="img-responsive" alt="product"
-                                             src="~/Content/images/product-detail/{{p.anh}}" />
-                                    </a>
-
-                                    <div class="quick-view">
-                                        <a title="Yêu thích" class="heart" href="#"></a>
-                                        <a title="So sánh" class="compare" href="#"></a>
-                                        <a title="Xem chi tiết" href="images/product-detail/vegetables/spinach_600x600.jpg" class="search fancybox-button"></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a class="add-item-to-cart" title="Add to Cart" href="javascript:void(0)" data-name="Spinach - 1kg"
-                                           data-price="55000" data-image="vegetables/spinach_300x300.jpg" data-product-code="SP109" onclick="muahang()">Thêm vào giỏ hàng</a>
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="/SanPham/ChiTietSP/{{p.masp}}">{{p.tensp}}</a></h5>
-
-                                    <div class="content_price">
-                                        <span class="price product-price" id="meow"><span style="color: black">Đơn giá: </span> {{p.dongia}}VND</span>
-                                    </div>
-                                </div>
-                            </li>
-
-
+                <div class="col-sm-12 header-top-right">
+                    <div class="homeslider">
+                        <ul id="contenhomeslider" style="height: 300px !important">
+                            <li><img alt="Cosmetic" src="~/Content/images/slide/slide5.jpg" title="Cosmetic" /></li>
+                            <li><img alt="Cosmetic" src="~/Content/images/slide/slide6.jpg" title="Cosmetic" /></li>
+                            <li><img alt="Cosmetic" src="~/Content/images/slide/slide4.png" title="Cosmetic" /></li>
+                            <li><img alt="Cosmetic" src="~/Content/images/slide/slide3.jpg" title="Cosmetic" /></li>
+                            <li><img alt="Cosmetic" src="~/Content/images/slide/slide2.jpg" title="Cosmetic" /></li>
+                            <li><img alt="Cosmetic" src="~/Content/images/slide/slide1.jpg" title="Cosmetic" /></li>
                         </ul>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- end featured category -->
-<!-- POPUP LOGIN-REGISTER -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" ng-controller="login" >
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel" style="font-weight: bold">ĐĂNG NHẬP/ĐĂNG KÝ</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-7" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#Login" data-toggle="tab">Đăng nhập</a></li>
-                            <li><a href="#Registration" data-toggle="tab">Đăng ký</a></li>
-                        </ul>
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <!-- LOGIN -->
-                            <div class="tab-pane active" id="Login">
-                                <div name="dangnhap_from" class="form-horizontal"
-                                     id="dangnhap_from" method="post">
-                                    <div class="form-group">
-                                        <label for="email_login" class="col-sm-3 control-label">Email</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="email" class="input form-control" id="email_login"
-                                                   placeholder="Email...." ng-model="account" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="pass_login" class="col-sm-3 control-label">Mật khẩu</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="password" class="input form-control" id="pass_login"
-                                                   placeholder="Mật khẩu...." ng-model="password" />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <button class="button" type="submit" id="button-confirm" ng-click="login()">Đăng nhập</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- REGISTER -->
-                            <div class="tab-pane fade" id="Registration">
-                                <div class="form-horizontal" name="dangkytk_form"
-                                     enctype="multipart/form-data" id="dangkytk_form register">
-                                    <div class="form-group">
-                                        <label for="frm_name" class="col-sm-4 control-label">Họ tên</label>
-
-                                        <div class="col-sm-8">
-                                            <input type="text" class="input form-control" id="frm_name" required ng-model="name" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="emailtk" class="col-sm-4 control-label">Email</label>
-
-                                        <div class="col-sm-8">
-                                            <input type="email" class="input form-control" id="emailtk" required ng-model="email" />
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pass_tk" class="col-sm-4 control-label">Mật khẩu</label>
-
-                                        <div class="col-sm-8">
-                                            <input type="password" class="input form-control" id="pass_tk" required ng-model="password" />
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="dienthoai" class="col-sm-4 control-label">Số điện thoại</label>
-
-                                        <div class="col-sm-8">
-                                            <input type="text" name="dienthoai" class="input form-control" id="dienthoai_dk" ng-model="phone" />
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="diachi" class="col-sm-4 control-label">Địa chỉ</label>
-
-                                        <div class="col-sm-8">
-                                            <input type="text" name="diachi" class="input form-control" id="diachi_dk" ng-model="address" />
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <button class="button" type="submit" ng-click="signIn()">Đăng ký</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- featured category  -->
+    <div class="demo_changer" id="demo_changer">
+        <div class="demo-icon fa fa-shopping-cart">
+            <span class="notify notify-left">{{carts.length}}</span>
+        </div>
+        <div class="form_holder">
+            <div class="cart-block">
+                <div class="cart-block-content">
+                    <div class="cart-block-list">
+                        <div class="shop_cart">
+                            <table class="shop_table">
+                                <tbody>
+                                    <tr class='cart_item' ng-repeat="c in carts">
+                                        <td class='product-remove'>
+                                            <div class='bt_remove_product left' ng-click="removeCartItem($index)">" + "</div>
+                                        </td>
+                                        <td class='product-name'>
+                                            <b>{{c.ten}}</b>
+                                            <div class='clr'></div>
+                                            <div class='box_quantity left'>
+                                                <div class='quantity right'>
+                                                    <input class='bt_minus' type='button' value='-' ng-click="minus($index)">
+                                                    <input type='text' disabled name='product_cart_qty' title='Qty' class='input-text qty text product_qty' size='4' ng-model="c.sl_mua">
+                                                    <input class='bt_plus' type='button' value='+' ng-click="plus($index)">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class='product-price' valign='top'>
+                                            <span class='amount'>{{c.sl_mua*c.gia | number}}</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
-                        <div id="OR" class="hidden-xs">Hoặc</div>
                     </div>
+                    <div class="toal-cart">
+                        <span>Tổng tiền</span>
+                        <span class="toal-price pull-right">{{tongTien() | number}} VND</span>
+                    </div>
+                    <div class="cart-buttons">
+                        <a href="/GioHang/ShoppingCart" class="btn-check-out" ng-click="pay()">Thanh toán</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <!-- Facebook - Google account -->
-                    <div class="col-md-5">
-                        <div class="row text-center sign-with">
-                            <div class="social-header">Đăng nhập với</div>
-                            <div class="unit social-column">
-                                <div class="social-inner">
-                                    <div><a href=""><img src="~/Content/images/fb-login-button-big.png" alt="login-facebook"></a></div>
-                                    <div><a href=""><img src="~/Content/images/gg-login-button-big.png" alt="login-google"></a></div>
+    @*<div class="content-page">*@
+    <div class="container">
+        <div class="category-featured Vegetables">
+            <nav class="navbar nav-menu show-brand">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-brand"><a href="#"> <img alt="fashion" src="~/Content/images/icon_like.png" /> Tất cả sản phẩm</a></div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse">
+
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+
+            </nav>
+            <div class="product-featured clearfix">
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <div class="box-right">
+                            <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+                            <select ng-model="products" ng-change="seachProduct()" style="visibility:hidden"></select>
+
+                            <ul class="product-list">
+                                <li class="col-sm-4 product-item" ng-repeat="p in products">
+                                    <div class="left-block">
+                                        <a href="/SanPham/ChiTietSP/{{p.masp}}">
+                                            <img class="img-responsive" alt="product"
+                                                 src="~/Content/images/product-detail/{{p.anh}}" />
+                                        </a>
+
+                                        <div class="quick-view">
+                                            <a title="Yêu thích" class="heart" href="#"></a>
+                                            <a title="So sánh" class="compare" href="#"></a>
+                                            <a title="Xem chi tiết" href="images/product-detail/vegetables/spinach_600x600.jpg" class="search fancybox-button"></a>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <a class="add-item-to-cart" title="Add to Cart" href="" data-name="Spinach - 1kg"
+                                               data-price="55000" data-image="vegetables/spinach_300x300.jpg" data-product-code="SP109" ng-click="muaHang($index)">Thêm vào giỏ hàng</a>
+                                        </div>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="/SanPham/ChiTietSP/{{p.masp}}">{{p.tensp}}</a></h5>
+
+                                        <div class="content_price">
+                                            <span class="price product-price"><span style="color: black">Đơn giá: </span><span id="price">{{p.dongia | number}}</span> VND</span>
+
+                                        </div>
+                                    </div>
+
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end featured category -->
+    <!-- POPUP LOGIN-REGISTER -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" ng-controller="login">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel" style="font-weight: bold">ĐĂNG NHẬP/ĐĂNG KÝ</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-7" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#Login" data-toggle="tab">Đăng nhập</a></li>
+                                <li><a href="#Registration" data-toggle="tab">Đăng ký</a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <!-- LOGIN -->
+                                <div class="tab-pane active" id="Login">
+                                    <div name="dangnhap_from" class="form-horizontal"
+                                         id="dangnhap_from" method="post">
+                                        <div class="form-group">
+                                            <label for="email_login" class="col-sm-3 control-label">Email</label>
+
+                                            <div class="col-sm-9">
+                                                <input type="email" class="input form-control" id="email_login"
+                                                       placeholder="Email...." ng-model="account" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pass_login" class="col-sm-3 control-label">Mật khẩu</label>
+
+                                            <div class="col-sm-9">
+                                                <input type="password" class="input form-control" id="pass_login"
+                                                       placeholder="Mật khẩu...." ng-model="password" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <button class="button" type="submit" id="button-confirm" ng-click="login()">Đăng nhập</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- REGISTER -->
+                                <div class="tab-pane fade" id="Registration">
+                                    <div class="form-horizontal" name="dangkytk_form"
+                                         enctype="multipart/form-data" id="dangkytk_form register">
+                                        <div class="form-group">
+                                            <label for="frm_name" class="col-sm-4 control-label">Họ tên</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" class="input form-control" id="frm_name" required ng-model="name" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="emailtk" class="col-sm-4 control-label">Email</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="email" class="input form-control" id="emailtk" required ng-model="email" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pass_tk" class="col-sm-4 control-label">Mật khẩu</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="password" class="input form-control" id="pass_tk" required ng-model="password" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="dienthoai" class="col-sm-4 control-label">Số điện thoại</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" name="dienthoai" class="input form-control" id="dienthoai_dk" ng-model="phone" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="diachi" class="col-sm-4 control-label">Địa chỉ</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" name="diachi" class="input form-control" id="diachi_dk" ng-model="address" />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <button class="button" type="submit" ng-click="signIn()">Đăng ký</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="OR" class="hidden-xs">Hoặc</div>
+                        </div>
+
+                        <!-- Facebook - Google account -->
+                        <div class="col-md-5">
+                            <div class="row text-center sign-with">
+                                <div class="social-header">Đăng nhập với</div>
+                                <div class="unit social-column">
+                                    <div class="social-inner">
+                                        <div><a href=""><img src="~/Content/images/fb-login-button-big.png" alt="login-facebook"></a></div>
+                                        <div><a href=""><img src="~/Content/images/gg-login-button-big.png" alt="login-google"></a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

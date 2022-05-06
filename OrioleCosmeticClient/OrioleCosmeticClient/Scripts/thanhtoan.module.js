@@ -1,6 +1,10 @@
-﻿var myapp = angular.module('myapp', []);
-myapp.controller('thanhtoan', ($scope, $http) => {
+﻿app.controller('thanhtoan', ($scope, $http) => {
     $scope.carts = [];
+    if (localStorage.getItem('cart') != null) {
+        $scope.carts = JSON.parse(localStorage.getItem('cart'));
+        $scope.cartLen = $scope.carts.length;
+    }
+
     $scope.log = () => {
         console.log($scope.lastname);
     }
